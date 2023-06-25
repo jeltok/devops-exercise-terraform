@@ -55,7 +55,6 @@ resource "aws_ecs_task_definition" "node_js" {
         "value": "8080"
       }
     ]
-    }
   }
 ]
 DEFINITION
