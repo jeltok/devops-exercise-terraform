@@ -28,6 +28,37 @@ resource "aws_ecs_task_definition" "node_js" {
         "awslogs-group" : "devops",
         "awslogs-stream-prefix" : "node_js"
       }
+    },
+    "environment": [
+      {
+        "name": "DB_HOST",
+        "value": "${aws_db_instance.mysql.endpoint}"
+      },
+      {
+        "name": "DB_USER",
+        "value": "${var.rds_db_username}"
+      },
+      {
+        "name": "DB_PASSWORD",
+        "value": "${var.rds_db_password}"
+      },
+      {
+        "name": "DB_NAME",
+        "value": "${var.rds_db_name}"
+      },
+      {
+        "name": "DB_PORT",
+        "value": "3306"
+      },
+      {
+        "name": "NODE_DOCKER_PORT",
+        "value": "8080"
+      },
+      {
+        "name": "",
+        "value": "${var.}"
+      }
+    ]
     }
   }
 ]
