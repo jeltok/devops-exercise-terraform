@@ -43,7 +43,6 @@ resource "aws_security_group" "rds_sg" {
         protocol        = "tcp"
         from_port       = 3306
         to_port         = 3306
-        cidr_blocks     = ["0.0.0.0/0"]
         security_groups = [aws_security_group.node_js_task.id]
     }
 
