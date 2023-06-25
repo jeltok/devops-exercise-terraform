@@ -53,10 +53,6 @@ resource "aws_ecs_task_definition" "node_js" {
       {
         "name": "NODE_DOCKER_PORT",
         "value": "8080"
-      },
-      {
-        "name": "",
-        "value": "${var.}"
       }
     ]
     }
