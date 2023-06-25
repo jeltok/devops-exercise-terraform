@@ -20,7 +20,15 @@ resource "aws_ecs_task_definition" "node_js" {
         "containerPort": 8080,
         "hostPort": 8080
       }
-    ]
+    ],
+    "logConfiguration": {
+      "logDriver": "awslogs",
+      "options": {
+        "awslogs-region" : "${var.aws_region}",
+        "awslogs-group" : "devops",
+        "awslogs-stream-prefix" : "node_js"
+      }
+    }
   }
 ]
 DEFINITION
