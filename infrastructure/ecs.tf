@@ -20,6 +20,6 @@ resource "aws_ecs_service" "node_js" {
     container_port   = 8080
   }
 
-  depends_on = [aws_lb_listener.node_js]
+  depends_on = [aws_lb_listener.node_js, aws_db_instance.mysql]
 }
 

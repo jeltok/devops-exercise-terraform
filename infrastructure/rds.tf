@@ -6,7 +6,6 @@ resource "aws_db_instance" "mysql" {
     identifier                = "mysql"
     allocated_storage         = 5
     backup_retention_period   = 1
-    multi_az                  = true
     engine                    = "mysql"
     engine_version            = "5.7"
     parameter_group_name      = "default.mysql5.7"
