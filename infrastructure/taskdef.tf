@@ -1,4 +1,6 @@
 resource "aws_ecs_task_definition" "node_js" {
+  task_role_arn            = aws_iam_role.ecs_task_role.arn
+  execution_role_arn       = aws_iam_role.ecs_task_execution_role.arn
   family                   = "node-js-app"
   network_mode             = "awsvpc"
   requires_compatibilities = ["FARGATE"]
@@ -8,7 +10,7 @@ resource "aws_ecs_task_definition" "node_js" {
   container_definitions = <<DEFINITION
 [
   {
-    "image": "354386841181.dkr.ecr.us-east-1.amazonaws.com/devops/node_js:latest",
+    "image": "${var.ecr_repo_uri}",
     "cpu": 512,
     "memory": 1024,
     "name": "node-js-app",
